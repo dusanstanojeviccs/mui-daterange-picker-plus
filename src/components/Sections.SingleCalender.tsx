@@ -27,6 +27,7 @@ type SingleCalenderProps = {
   locale?: Locale;
 
   hideOutsideMonthDays?: boolean;
+  initialEndOnRight?: boolean;
 };
 
 export const SingleCalender = ({
@@ -36,6 +37,7 @@ export const SingleCalender = ({
   commonProps,
   locale,
   hideOutsideMonthDays,
+  initialEndOnRight,
 }: SingleCalenderProps) => {
   const canNavigateBack = !isSameMonth(firstMonth, commonProps.minDate);
   const canNavigateForward = !isSameMonth(firstMonth, commonProps.maxDate);
@@ -53,7 +55,7 @@ export const SingleCalender = ({
       <Grid2 xs="auto" container direction={"column"}>
         <Month
           {...commonProps}
-          currentDate={firstMonth}
+          currentDate={initialEndOnRight ? secondMonth : firstMonth}
           otherDate={secondMonth}
           setMonth={handleSetSingleMonth}
           navState={[canNavigateBack, canNavigateForward]}

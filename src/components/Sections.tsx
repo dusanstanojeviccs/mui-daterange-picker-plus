@@ -55,6 +55,7 @@ type SectionsProps = {
   };
   onCloseCallback?: () => void;
   footerRequired?: boolean;
+  initialEndOnRight?: boolean;
 };
 
 export const Sections = (props: SectionsProps) => {
@@ -81,6 +82,7 @@ export const Sections = (props: SectionsProps) => {
     RangeSeparatorIcons,
     onCloseCallback,
     footerRequired,
+    initialEndOnRight,
   } = props;
 
   const { startDate, endDate } = dateRange;
@@ -271,6 +273,7 @@ export const Sections = (props: SectionsProps) => {
             commonProps={commonProps}
             hideOutsideMonthDays={hideOutsideMonthDays}
             locale={locale}
+            initialEndOnRight={initialEndOnRight}
           />
         </Grid2>
 
