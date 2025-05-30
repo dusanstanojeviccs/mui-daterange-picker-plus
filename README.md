@@ -273,6 +273,7 @@ export default function YourComponent() {
 | `labels`               | `Labels`                         | -                                       | Customize labels used in UI (Apply, Cancel, Start Date, End Date etc.) |
 | `hideDefaultRanges`    | `boolean`                        | false                                   | Option to hide default predefined ranges.                              |
 | `hideOutsideMonthDays` | `boolean`                        | true                                    | Option to hide days outside the current month.                         |
+| `initialEndOnRight` | `boolean`                        | false                                    | Option to default the values to the 2nd calendar (the one on the right). This is useful for when the period is expected to be only extended on the from (left) side.                        |
 
 > Make sure to provide `initialDateRange` within the min and max date.
 
