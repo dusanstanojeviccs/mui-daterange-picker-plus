@@ -39,6 +39,8 @@ export type PickerProps = {
 
   hideDefaultRanges?: boolean;
   hideOutsideMonthDays?: boolean;
+
+  initialEndOnRight?: boolean;
 };
 
 export type ModalCustomProps = {

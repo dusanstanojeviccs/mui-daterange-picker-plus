@@ -117,13 +117,20 @@ export const parseOptionalDate = (
 export const getValidatedMonths = (
   range: DateRange,
   minDate: Date,
-  maxDate: Date
+  maxDate: Date,
+  initialEndOnRight: boolean
 ) => {
   const { startDate, endDate } = range;
   if (startDate && endDate) {
     const newStart = max([startDate, minDate]);
     const newEnd = min([endDate, maxDate]);
 
+    if (initialEndOnRight) {
+      return [
+        isSameMonth(newStart, newEnd) ? addMonths(newStart, -1) : newStart,
+        isSameMonth(newStart, newEnd) ? newStart : newEnd,
+      ];
+    }
     return [
       newStart,
       isSameMonth(newStart, newEnd) ? addMonths(newStart, 1) : newEnd,

@@ -34,6 +34,7 @@ export const useDateRangePicker = (props: useDateRangePickerProps) => {
     maxDate,
     definedRanges = getDefaultRanges(new Date(), props.locale),
     locale,
+    initialEndOnRight,
   } = props;
 
   // !Assign starting states
@@ -43,7 +44,8 @@ export const useDateRangePicker = (props: useDateRangePickerProps) => {
   const [initialFirstMonth, initialSecondMonth] = getValidatedMonths(
     initialDateRange || {},
     minValidDate,
-    maxValidDate
+    maxValidDate,
+    initialEndOnRight || false
   );
   const [dateRange, setDateRange] = useState<DateRange>({
     ...initialDateRange,
